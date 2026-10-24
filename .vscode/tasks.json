@@ -1,0 +1,36 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Dev",
+      "type": "process",
+      "command": "mise",
+      "args": ["run", "dev"],
+      "isBackground": true,
+      "problemMatcher": []
+    },
+    {
+      "label": "Build",
+      "type": "process",
+      "command": "mise",
+      "args": ["run", "build"],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "Check",
+      "type": "process",
+      "command": "mise",
+      "args": ["run", "check"],
+      "problemMatcher": []
+    },
+    {
+      "label": "Verify",
+      "type": "process",
+      "command": "mise",
+      "args": ["run", "verify"],
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

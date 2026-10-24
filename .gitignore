@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.astro/
+.vite/
+.env
+.env.*
+!.env.example
+playwright-report/
+test-results/
+.DS_Store
+mise.local.toml

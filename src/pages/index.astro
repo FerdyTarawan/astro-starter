@@ -1,0 +1,34 @@
+---
+import Showcase from '@/components/islands/Showcase';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Astro Starter · A place to begin">
+  <main id="main" class="mx-auto max-w-5xl px-6 py-10 sm:px-10 sm:py-16">
+    <header class="mb-16 flex items-center justify-between border-b pb-5 text-xs">
+      <a href="/" class="font-semibold tracking-tight">
+        ASTRO / STARTER
+      </a>
+      <span class="text-muted-foreground">FOUNDATION 001</span>
+    </header>
+    <section aria-labelledby="intro" class="mb-12 max-w-2xl">
+      <p class="mb-5 text-xs tracking-widest text-muted-foreground">A SMALL START. ROOM TO GROW.</p>
+      <h1 id="intro" class="mb-6 text-4xl leading-tight font-medium tracking-tight sm:text-6xl">
+        Your next idea
+        <br />
+        starts here.
+      </h1>
+      <p class="max-w-xl text-sm leading-7 text-muted-foreground">
+        A clean canvas built with Astro and React. Accessible components, considered defaults, and
+        just enough structure to make it yours.
+      </p>
+    </section>
+    <Showcase client:load />
+    <footer class="mt-16 flex flex-wrap justify-between gap-3 border-t pt-5 text-xs text-muted-foreground">
+      <span>Astro · React · Lyra</span>
+      <a class="underline underline-offset-4" href="https://ui.shadcn.com/docs">
+        Component documentation ↗
+      </a>
+    </footer>
+  </main>
+</BaseLayout>

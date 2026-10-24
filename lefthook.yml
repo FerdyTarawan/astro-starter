@@ -1,0 +1,10 @@
+pre-commit:
+  parallel: true
+  jobs:
+    - name: format
+      glob: '*.{js,mjs,cjs,jsx,ts,mts,cts,tsx,json,jsonc,css,astro,md,mdx,yml,yaml,toml,html}'
+      exclude: 'pnpm-lock.yaml'
+      run: mise exec -- pnpm exec vp fmt --check "{staged_files}"
+    - name: lint
+      glob: '*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}'
+      run: mise exec -- pnpm exec vp lint "{staged_files}"

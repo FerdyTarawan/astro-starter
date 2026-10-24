@@ -1,0 +1,14 @@
+overrides:
+  vite@*: npm:@voidzero-dev/vite-plus-core@1.4.0
+  vitest@*: 5.0.5
+allowBuilds:
+  lefthook: true
+runtimeOnFail: ignore
+pmOnFail: ignore
+saveExact: true
+# The aliased package reports 1.4.0; its bundled Vite is 8.3.5.
+peerDependencyRules:
+  allowedVersions:
+    vite: 1.4.0
+    # Astro forwards the compiler options to plugin-react 6.1.2, whose peer is 0.152.x.
+    '@astrojs/react>oxc-transform-react': 0.152.0
