@@ -3,7 +3,7 @@
   "editor.defaultFormatter": "oxc.oxc-vscode",
   "oxc.fmt.disableNestedConfig": true,
   "oxc.fmt.configPath": "./vite.config.ts",
-  "typescript.tsdk": "node_modules/typescript/lib",
+  "js/ts.tsdk.path": "node_modules/typescript/lib",
   "files.exclude": { "**/.astro": true },
   "search.exclude": { "**/pnpm-lock.yaml": true, "**/dist": true },
   "[astro]": { "editor.defaultFormatter": "oxc.oxc-vscode" },
