@@ -2,6 +2,19 @@
 node = "26.12.1"
 pnpm = "12.15.0"
 
+[tasks.setup]
+description = "Install project dependencies, Git hooks, and the Chromium test browser"
+run = [
+  "pnpm install --frozen-lockfile",
+  "pnpm run prepare",
+  "pnpm exec playwright install chromium",
+]
+
+[tasks."ui:add"]
+description = "Add shadcn components (for example: mise run ui:add checkbox)"
+run = "pnpm run ui:add"
+raw = true
+
 [tasks.dev]
 run = "pnpm exec vp run dev"
 [tasks.build]

@@ -10,12 +10,13 @@ Make sure you have [Mise](https://mise.jdx.dev/) installed, then run:
 
 ```sh
 mise trust
-mise install
-mise exec -- pnpm install --frozen-lockfile
+mise run setup
 mise run dev
 ```
 
 Open `http://localhost:4321` to view the site.
+
+`setup` installs the pinned tools through Mise, project dependencies from the lockfile, Lefthook hooks, and Chromium for browser tests. On Linux, Playwright may also require system packages: run `mise exec -- pnpm exec playwright install --with-deps chromium` if prompted.
 
 > **Tip:** Open VS Code from a Mise-enabled terminal (`code .`) or add Mise to your user `PATH` so the editor and Git hooks can find `node` and `pnpm`.
 
@@ -23,22 +24,23 @@ Open `http://localhost:4321` to view the site.
 
 Run commands with `mise run <command>` (or `pnpm <command>` inside a Mise shell):
 
-| Command         | Description                                          |
-| --------------- | ---------------------------------------------------- |
-| `dev`           | Start the local dev server                           |
-| `build`         | Build static files to `dist/`                        |
-| `preview`       | Preview the production build locally                 |
-| `format`        | Format files with Oxfmt (including Astro & Tailwind) |
-| `check`         | Check formatting, lint with Oxlint, and type-check   |
-| `test:e2e`      | Run Playwright tests (requires a build first)        |
-| `verify`        | Run all checks, build the site, and run E2E tests    |
-| `hooks:install` | Install Lefthook git hooks                           |
-| `hooks:check`   | Run pre-commit checks on staged files                |
+| Command                  | Description                                                   |
+| ------------------------ | ------------------------------------------------------------- |
+| `setup`                  | Install project dependencies, hooks, and Chromium (Mise only) |
+| `ui:add <components...>` | Add shadcn components using the configured theme and icons    |
+| `dev`                    | Start the local dev server                                    |
+| `build`                  | Build static files to `dist/`                                 |
+| `preview`                | Preview the production build locally                          |
+| `format`                 | Format files with Oxfmt (including Astro & Tailwind)          |
+| `check`                  | Check formatting, lint with Oxlint, and type-check            |
+| `test:e2e`               | Run Playwright tests (requires a build first)                 |
+| `verify`                 | Run all checks, build the site, and run E2E tests             |
+| `hooks:install`          | Install Lefthook git hooks                                    |
+| `hooks:check`            | Run pre-commit checks on staged files                         |
 
-Before running E2E tests for the first time, install the test browser:
+After setup, run the complete verification suite with:
 
 ```sh
-mise exec -- pnpm exec playwright install chromium
 mise run verify
 ```
 
@@ -56,9 +58,11 @@ mise run verify
 Add new shadcn components with:
 
 ```sh
-mise exec -- pnpm run ui:add -- checkbox
+mise run ui:add checkbox
 mise run format
 ```
+
+Pass multiple component names (`mise run ui:add checkbox select`) or run `mise run ui:add` for the interactive picker. Use `--` before CLI options, for example `mise run ui:add -- --help`.
 
 Components are generated into `src/components/ui/` and are yours to edit directly. Theme colors live in `src/styles/global.css`. Icons use `@hugeicons/react` with the free `@hugeicons/core-free-icons` pack; `components.json` selects Hugeicons for future shadcn additions.
 
