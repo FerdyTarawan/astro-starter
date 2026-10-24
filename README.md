@@ -60,7 +60,7 @@ mise exec -- pnpm run ui:add -- checkbox
 mise run format
 ```
 
-Components are generated into `src/components/ui/` and are yours to edit directly. Theme colors live in `src/styles/global.css`.
+Components are generated into `src/components/ui/` and are yours to edit directly. Theme colors live in `src/styles/global.css`. Icons use `@hugeicons/react` with the free `@hugeicons/core-free-icons` pack; `components.json` selects Hugeicons for future shadcn additions.
 
 ## Git Hooks & Tooling Notes
 

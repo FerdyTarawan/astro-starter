@@ -1,4 +1,5 @@
-import { ArrowUpRight, Moon, Sun } from 'lucide-react';
+import { ArrowUpRight01Icon, Moon02Icon, Sun03Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { useState, useSyncExternalStore } from 'react';
 import { TextField } from 'react-aria-components';
 
@@ -54,7 +55,7 @@ export default function Showcase() {
           isDisabled={!ready}
           aria-label="Toggle color theme"
         >
-          {dark ? <Sun aria-hidden="true" /> : <Moon aria-hidden="true" />}
+          <HugeiconsIcon icon={dark ? Sun03Icon : Moon02Icon} strokeWidth={2} aria-hidden="true" />
           <span className="hidden sm:inline">Switch theme</span>
         </Button>
       </div>
@@ -78,7 +79,8 @@ export default function Showcase() {
               </TextField>
               <DialogTrigger>
                 <Button isDisabled={!ready}>
-                  Preview project <ArrowUpRight aria-hidden="true" />
+                  Preview project{' '}
+                  <HugeiconsIcon icon={ArrowUpRight01Icon} strokeWidth={2} aria-hidden="true" />
                 </Button>
                 <Dialog>
                   <DialogHeader>

@@ -1,5 +1,6 @@
+import { Cancel01Icon } from '@hugeicons/core-free-icons';
+import { HugeiconsIcon } from '@hugeicons/react';
 import { cn } from 'cn';
-import { XIcon } from 'lucide-react';
 import * as React from 'react';
 import {
   Dialog as DialogPrimitive,
@@ -86,7 +87,7 @@ function Dialog({
           {children}
           {showCloseButton && (
             <DialogClose variant="ghost" className="absolute top-2 right-2" size="icon-sm">
-              <XIcon />
+              <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} />
               <span className="sr-only">Close</span>
             </DialogClose>
           )}
