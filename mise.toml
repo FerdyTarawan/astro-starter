@@ -4,32 +4,28 @@ pnpm = "12.15.0"
 
 [tasks.setup]
 description = "Install project dependencies, Git hooks, and the Chromium test browser"
-run = [
-  "pnpm install --frozen-lockfile",
-  "pnpm run prepare",
-  "pnpm exec playwright install chromium",
-]
+run = ["vp install --frozen-lockfile", "vp run prepare", "vp exec playwright install chromium"]
 
 [tasks."ui:add"]
 description = "Add shadcn components (for example: mise run ui:add checkbox)"
-run = "pnpm run ui:add"
+run = "vp run ui:add"
 raw = true
 
 [tasks.dev]
-run = "pnpm exec vp run dev"
+run = "vp run dev"
 [tasks.build]
-run = "pnpm exec vp run build"
+run = "vp run build"
 [tasks.preview]
-run = "pnpm exec vp run preview"
+run = "vp run preview"
 [tasks.format]
-run = "pnpm run format"
+run = "vp run format"
 [tasks.check]
-run = "pnpm run check"
+run = "vp run check"
 [tasks."test:e2e"]
-run = "pnpm run test:e2e"
+run = "vp run test:e2e"
 [tasks.verify]
-run = "pnpm run verify"
+run = "vp run verify"
 [tasks."hooks:install"]
-run = "pnpm run hooks:install"
+run = "vp run hooks:install"
 [tasks."hooks:check"]
-run = "pnpm run hooks:check"
+run = "vp run hooks:check"

@@ -10,7 +10,7 @@
     "format": "vp fmt",
     "check": "vp check && astro check",
     "test:e2e": "playwright test",
-    "verify": "pnpm run check && pnpm run build && pnpm run test:e2e",
+    "verify": "vp run check && vp run build && vp run test:e2e",
     "hooks:install": "lefthook install",
     "hooks:check": "lefthook run pre-commit",
     "ui:add": "shadcn add",

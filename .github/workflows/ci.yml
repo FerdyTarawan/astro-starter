@@ -12,8 +12,16 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: jdx/mise-action@v3
-      - run: pnpm install --frozen-lockfile
-      - run: pnpm exec playwright install --with-deps chromium
+      - name: Install Vite Plus
+        uses: voidzero-dev/setup-vp@v1.22.0
+        with:
+          version-file: package.json
+          node-manager: false
+          package-manager: false
+          cache: true
+          run-install: |
+            - args: ['--frozen-lockfile']
+      - run: vp exec playwright install --with-deps chromium
       - run: mise run verify
       - uses: actions/upload-artifact@v4
         if: failure()
